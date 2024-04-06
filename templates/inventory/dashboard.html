@@ -1,0 +1,109 @@
+{% extends "../layout.html" %}
+{% block content %}
+
+    <div class="content-section">
+        <div class="row">
+            <div class="row mx-auto justify-content-center col">
+                <div class="card m-4" style="width: 90%;">
+                    <div class="card-body">
+                        <div id="chart2">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row mx-auto justify-content-center col">
+                <div class="card m-4" style="width: 90%;">
+                    <div class="card-body">
+                        <div id="chart1">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mx-auto justify-content-center col">
+                <div class="card m-4" style="width: 90%;">
+                    <div class="card-body">
+                        <div id="chart4">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row mx-auto justify-content-center col">
+                <div class="card m-4" style="width: 90%;">
+                    <div class="card-body">
+                        <div id="chart3">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row mx-auto justify-content-center col">
+                <div class="card m-4" style="width: 90%;">
+                    <div class="card-body">
+                        <div id="chart5">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mx-auto justify-content-center col">
+                <div class="card m-4" style="width: 90%;">
+                    <div class="card-body">
+                        <div id="chart6">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+       
+    </div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script type="text/javascript">
+        var graph1 = {{ sales_graph| safe }}
+        Plotly.plot("chart1", graph1, {})
+    </script>
+
+    <script type="text/javascript">
+        var graph2 = {{ best_performing_product| safe }}
+        Plotly.plot("chart2", graph2, {})
+    </script>
+
+    <script type="text/javascript">
+        var graph3 = {{ most_product_in_stock| safe }}
+        Plotly.plot("chart3", graph3, {})
+    </script>
+
+    <script type="text/javascript">
+        var graph4 = {{ inventory_levels| safe }}
+        Plotly.plot("chart4", graph4, {})
+    </script>
+
+    <script type="text/javascript">
+        var graph5 = {{ sales_over_time| safe }}
+        Plotly.plot("chart5", graph5, {})
+    </script>
+
+    <script type="text/javascript">
+        var graph6 = {{ metrics_over_time| safe }}
+        Plotly.plot("chart6", graph6, {})
+    </script>
+
+
+{% endblock %}

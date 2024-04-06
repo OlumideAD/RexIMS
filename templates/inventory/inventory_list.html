@@ -1,0 +1,107 @@
+
+{% extends "../layout.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+    <h1><span class="badge text-bg-secondary success">Product Lists</span></h1>
+            <form method="post">
+                    <legend class="border-bottom pd-2 mb-4 text-center">Quick Search <i class="bi bi-search"></i></legend>
+                    {% csrf_token %} <!--(Cross-Site Request Forgery) token 
+                        Provide protection from malicious requests -->
+                    <div class="row">
+                            <div class="col">
+                                {{ form.category|as_crispy_field }}
+                            </div>
+                            <div class="col">
+                                {{ form.name|as_crispy_field }}
+                            </div>
+                            <div class="col">
+                                {{ form.sold_by|as_crispy_field }}
+                            </div>
+                            <div class="col">
+                                {{ form.sold_to|as_crispy_field }}
+                            </div>
+                            <div class="col">
+                                {{ form.supplier|as_crispy_field }}
+                            </div>
+                           
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            {{ form.export_to_CSV|as_crispy_field }}
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-outline-success btn-block w-100 mb-3" type="submit">Submit <i class="bi bi-check-circle-fill"></i></button>
+                        </div>
+                    </div>
+                    
+                    
+                
+            </form>
+
+        
+    <div class="mt-2">
+        <table class="table table-striped table-bordered table-hover">
+        
+            <thead class="thead table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity In Stock</th>
+                    <th scope="col">Item Cost</th>
+                    <th scope="col">Quantity Sold</th>
+                    <th scope="col">Sales Price</th>
+                    <th scope="col">Sales</th>
+                    <th scope="col">Sold_by</th>
+                    <th scope="col">Sold_to</th>
+                    <th scope="col">Supplier</th>
+                    <th scope="col">Stock Date</th>
+                    <th scope="col">Last Sales Date</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {%  for inventory in inventories %}
+                    <tr style="cursor: pointer; cursor: hand;" onclick="window.location = `{% url 'product_view' inventory.id %}`">
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <th scope="row">{{ inventory.category }}</th>
+                        <th scope="row">{{ inventory.name }}</th>
+                        <th scope="row"> {% if inventory.quantity_in_stock <= inventory.reorder_level %}
+                            <div style="background-color: orange;">
+                                {{ inventory.quantity_in_stock }}
+                            </div>
+                            {% else %} 
+                                {{ inventory.quantity_in_stock }}
+                            {% endif %}
+                        <th scope="row">{{ inventory.cost_per_item }}</th>
+                        <th scope="row">{{ inventory.quantity_sold }}</th>
+                        <th scope="row">{{ inventory.cost_sold_per_item }}</th>
+                        <th scope="row">{{ inventory.sales }}</th>
+                        <th scope="row">{{ inventory.sold_by }}</th>
+                        <th scope="row">{{ inventory.sold_to }}</th>
+                        <th scope="row">{{ inventory.supplier }}</th>
+                        <th scope="row">{{ inventory.stock_date }}</th>
+                        <th scope="row">{{ inventory.last_sales_date }}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div style="float: right;">
+            {% if inventories.has_previous %}
+                <a class="btn btn-primary" href="{% url 'inventory_list' %}?page={{inventories.previous_page_number}}">
+                <i class="bi bi-arrow-left-circle"></i> Previous page</a>
+            {% endif %}
+            {% if inventories.has_next %}
+                <a class="btn btn-primary" href="{% url 'inventory_list' %}?page={{inventories.next_page_number}}">
+                     Next page <i class="bi bi-arrow-right-circle"></i></a>
+            {% endif %}
+        </div>
+
+    </div>
+
+    
+   
+</div>
+{% endblock %}

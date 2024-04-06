@@ -1,0 +1,24 @@
+{% extends "../layout.html" %} <!--Inherit the main layout html page-->
+{% load crispy_forms_tags %} <!--load the django crispy form better UI design-->
+{% load static %} <!--load the apps static files from the static folder-->
+{% block content %} <!--A portion of web content -->
+    <div class="content-section">
+        <h1><span class="badge text-bg-secondary success mb-4">Update Product</span></h1>
+        {{ form.media }} <!-- Django method which ensures that your web forms 
+            look great and function smoothly-->
+        <form method="post">
+            <fieldset>
+                <legend class="border-bottom pd-2 mb-4 text-center"></legend>
+                {% csrf_token %} <!--(Cross-Site Request Forgery) token 
+                    Provide protection from malicious requests -->
+                <div>
+                    {{ form|crispy }} <!--Django login form template & 
+                        crispy design formats   -->
+                </div>
+                <div class="form-group pt-4">
+                    <button class="btn btn-success btn-block w-100" type="submit">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock%}

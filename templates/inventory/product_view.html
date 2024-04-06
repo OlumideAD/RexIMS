@@ -1,0 +1,174 @@
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-section">
+    <div class="row mx-auto justify-content-center">
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Product Category
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-card-checklist"></i>
+                        {{ inventory.category }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Product Name
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-cart"></i>
+                        {{ inventory.name }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Quantity In Stock
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-card-checklist"></i>
+                        {{ inventory.quantity_in_stock }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Quantity Sold
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-card-checklist"></i>
+                        {{ inventory.quantity_sold }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    {{ inventory.name }} Cost Price 
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-currency-dollar"></i>
+                        {{ inventory.cost_per_item }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    {{ inventory.name }} Selling Price 
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-currency-dollar"></i>
+                        {{ inventory.cost_sold_per_item }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Supplier
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-cart"></i>
+                        {{ inventory.supplier }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Sales
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-currency-dollar"></i>
+                        {{ inventory.sales }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Smart Inventory
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-globe"></i>
+                        {{ inventory.prediction }}</h3>
+                </h5>
+            </div>
+        </div>
+
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Re-Order Level
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-card-checklist"></i>
+                        {{ inventory.reorder_level }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Stock date
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-calendar-check"></i>
+                        {{ inventory.stock_date }}</h3>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    Last sales Date
+                    <div style="font-size: 30px;" class="text-center">
+                        <span><i class="fa-solid fa-warehouse"></i></span>
+                    </div>
+                    <h3 class="text-center"><i class="bi bi-calendar-check"></i>
+                        {{ inventory.last_sales_date }}</h3>
+                </h5>
+            </div>
+        </div>
+
+
+        <div class="btn-group">
+            <a  class="btn btn-success btn-sm m-2" href="{% url 'update_inventory' inventory.id %}">Update Item</a>
+            <a  class="btn btn-danger btn-sm m-2" href="{% url 'delete_inventory' inventory.id %}">Delete Item</a>
+            <a  class="btn btn-warning btn-sm m-2" href="{% url 'sell_product' inventory.id %}">Sell Item</a>
+            <a  class="btn btn-primary btn-sm m-2" href="{% url 'restock_product' inventory.id %}">Re-stock Item</a>
+        </div>
+
+       
+    </div>
+</div>
+{% endblock %}

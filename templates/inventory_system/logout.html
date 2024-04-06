@@ -1,0 +1,9 @@
+{% extends "../layout.html" %} <!--Inherit the main layout html page-->
+{% load static %} <!--load the apps static files from the static folder-->
+{% block content %} <!--A portion of web content -->
+    <div class="content-section">
+        <small class="text-muted">
+            you have been logged out. <a href="{% url 'login' %}" class="btn btn-outline-info"> <i class="bi bi-box-arrow-left"></i> Login Again</a>
+        </small>
+    </div>
+{% endblock %}
